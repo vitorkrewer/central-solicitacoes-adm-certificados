@@ -11,7 +11,7 @@ Este repositório contém a solução completa para a gestão de solicitações 
 1.  Um **formulário público** para que os alunos possam submeter os seus pedidos.
 2.  Um **painel de administração** interno para que a equipa académica possa gerir, processar e dar seguimento a essas solicitações.
 
-Construído inteiramente sobre o ecossistema Google, este sistema visa automatizar o fluxo de trabalho, centralizar a informação e fornecer ferramentas robustas para a gestão de documentos como declarações e históricos académicos.
+Construído inteiramente sobre o ecossistema Google, este sistema visa automatizar o fluxo de trabalho, centralizar a informação e fornecer ferramentas robustas para a gestão de documentos como declarações e históricos acadêmicos.
 
 ---
 

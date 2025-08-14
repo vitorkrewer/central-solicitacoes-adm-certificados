@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <?!= include('style.css'); ?>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="text-center mb-4" id="banner-container">
+            <img src="https://placehold.co/800x90/0056b3/FFFFFF?text=Nome+da+Instituição+ou+Inserir+Logo"
+                class="img-fluid rounded" alt="Banner da Instituição">
+        </div>
+
+        <div class="card">
+            <h4 class="card-header"><i class="bi bi-file-earmark-text-fill"></i> Solicitação de Certificado de Conclusão de Curso</h4>
+            <div class="card-body p-4 p-md-5">
+
+                <div class="accordion" id="infoAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <strong>Informações Importantes e Custos</strong>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <p>Ao concluir seu curso, primeiro verifique se cunmpriu o prazo mínimo de 4 meses sem
+                                    TCC, 6 meses com TCC, preencha
+                                    para solicitar seu certificado.</p>
+                                <p>Ambos os documentos (Histórico e Certificado) serão gerados e enviados de forma
+                                    digital para o seu e-mail, sem custo.</p>
+                                <p><strong>Opções de Certificado Físico (Opcional):</strong></p>
+                                <ul>
+                                    <li><strong>Retirada na secretaria:</strong> R$ 0,00 (Defina os valores).</li>
+                                    <li><strong>Envio pelos Correios:</strong> R$ 0, 00 (Defina os Valores</li>
+                                </ul>
+                                <!-- Caso não haja cobranças, remova esta informação ou substitua o conteúdo por novas informações. O conteúdo deve ficar dentro '<div class="accordion-body">'' -->
+                                <p>O prazo de retorno é de <strong>30 dias</strong> para o deferimento ou indeferimento
+                                    do pedido. Acompanhe seu e-mail.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <strong>Processo de Solicitação do Certificado</strong>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <p>Ao receber o formulário, a Secretaria Acadêmica verifica se os requisitos para
+                                    emissão do certificado foram preenchidos. São eles:</p>
+                                <ul>
+                                    <li>Prazo mínimo de curso (4 ou 6 meses);</li>
+                                    <li>Documentação do acadêmico em ordem;</li>
+                                    <li>Aprovação em todas as disciplinas (nota igual ou maior que 6,0).</li>
+                                </ul>
+                                <p>Caso algum dos requisitos não tenha sido atendido, você será comunicado no e-mail
+                                    cadastrado. O prazo para emissão passará a contar a partir da regularização da
+                                    pendência.</p>
+                                <p>Se todos os requisitos forem atendidos, o Certificado começa a ser confeccionado. O
+                                    prazo máximo para expedição é de 30 dias. O envio da via física, se solicitado, será
+                                    para o endereço indicado neste formulário após a confirmação do pagamento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="response-message" class="alert mt-4" role="alert"></div>
+
+                <form id="certificateForm" class="mt-4">
+                    <h5 class="form-section-title">Dados Pessoais</h5>
+                    <div class="mb-3"><label for="nome" class="form-label required-asterisk">Nome Completo</label><input
+                            type="text" class="form-control" id="nome" name="nome" required></div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3"><label for="cpf"
+                                class="form-label required-asterisk">CPF</label><input type="text" class="form-control"
+                                id="cpf" name="cpf" placeholder="000.000.000-00" required></div>
+                        <div class="col-md-6 mb-3"><label for="rg" class="form-label required-asterisk">RG</label><input
+                                type="text" class="form-control" id="rg" name="rg" required></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3"><label for="ufRG" class="form-label required-asterisk">UF do
+                                RG</label><select id="ufRG" name="ufRG" class="form-select" required></select></div>
+                        <div class="col-md-6 mb-3"><label for="dataNascimento" class="form-label required-asterisk">Data
+                                de Nascimento</label><input type="date" class="form-control" id="dataNascimento"
+                                name="dataNascimento" required></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3"><label for="nacionalidade"
+                                class="form-label required-asterisk">Nacionalidade</label><select id="nacionalidade"
+                                name="nacionalidade" class="form-select" required>
+                                <option value="" selected disabled>-- Selecione --</option>
+                                <option value="Brasileira">Brasileira</option>
+                                <option value="Estrangeiro(a)">Estrangeiro(a)</option>
+                            </select></div>
+                        <div class="col-md-6 mb-3"><label for="genero"
+                                class="form-label required-asterisk">Gênero</label><select id="genero" name="genero"
+                                class="form-select" required>
+                                <option value="" selected disabled>-- Selecione --</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
+                            </select></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3"><label for="telefone" class="form-label required-asterisk">Telefone /
+                                WhatsApp</label><input type="tel" class="form-control" id="telefone" name="telefone"
+                                placeholder="(00) 00000-0000" required></div>
+                        <div class="col-md-6 mb-3"><label for="email"
+                                class="form-label required-asterisk">E-mail</label><input type="email"
+                                class="form-control" id="email" name="email" required></div>
+                    </div>
+
+                    <h5 class="form-section-title">Dados do Curso</h5>
+                    <div class="mb-3"><label for="instituicao" class="form-label required-asterisk">Selecione a
+                            Instituição</label><select class="form-select" id="instituicao" name="instituicao" required>
+                            <option value="" selected disabled>-- Escolha sua instituição --</option>
+                        </select></div>
+                    <div class="mb-3"><label for="curso" class="form-label required-asterisk">Selecione o Curso
+                            Concluído</label><select class="form-select" id="curso" name="curso" required disabled>
+                            <option value="" selected disabled>-- Escolha primeiro a instituição --</option>
+                        </select></div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3"><label for="inicioCurso" class="form-label required-asterisk">Data de
+                                Início do Curso</label><input type="date" class="form-control" id="inicioCurso"
+                                name="inicioCurso" required></div>
+                        <div class="col-md-6 mb-3"><label class="form-label required-asterisk">Optou pelo TCC?</label>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="optouTCC"
+                                    id="tccSim" value="Sim" required><label class="form-check-label"
+                                    for="tccSim">Sim</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="optouTCC"
+                                    id="tccNao" value="Não"><label class="form-check-label" for="tccNao">Não</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="durationWarning" class="alert alert-warning mt-2" role="alert"></div>
+
+                    <h5 class="form-section-title">Opções de Certificado</h5>
+                    <div class="mb-3"><label class="form-label required-asterisk">Escolha a modalidade de envio</label>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" value="Digital"
+                                id="modalidadeDigital" name="modalidadeEnvio"><label class="form-check-label"
+                                for="modalidadeDigital">Certificado digital (sem custo)</label></div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox"
+                                value="Físico - Retirada" id="modalidadeRetirada" name="modalidadeEnvio"><label
+                                class="form-check-label" for="modalidadeRetirada">Certificado físico para retirada na
+                                secretaria (R$ 70,00)</label></div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox"
+                                value="Físico - Correios" id="modalidadeCorreios" name="modalidadeEnvio"><label
+                                class="form-check-label" for="modalidadeCorreios">Certificado físico para envio pelo
+                                correio (R$ 150,00)</label></div>
+                    </div>
+                    <div id="paymentLinkWrapper" class="mb-3 text-center">
+                        <p class="mb-2">Para prosseguir com a opção física, realize o pagamento no link abaixo:</p><a
+                            href="#" id="paymentButton" target="_blank" class="btn btn-success btn-lg"><i
+                                class="bi bi-cash-coin"></i> Realizar Pagamento</a>
+                    </div>
+                    <div class="mb-3" id="idTransacaoWrapper"><label for="idTransacao"
+                            class="form-label required-asterisk">ID da Transação de Pagamento</label><input type="text"
+                            class="form-control" id="idTransacao" name="idTransacao"
+                            placeholder="Informe o ID/código recebido após o pagamento" required></div>
+                    <div id="dadosEnvio">
+                        <h5 class="form-section-title">Endereço para Envio (Apenas para opção "Correios")</h5>
+                        <div class="row">
+                            <div class="col-md-4 mb-3"><label for="cep" class="form-label">CEP</label><input type="text"
+                                    class="form-control" id="cep" name="cep" placeholder="00000-000"></div>
+                            <div class="col-md-8 mb-3"><label for="endereco" class="form-label">Endereço (Rua,
+                                    Av.)</label><input type="text" class="form-control" id="endereco" name="endereco">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3"><label for="numero" class="form-label">Número</label><input
+                                    type="text" class="form-control" id="numero" name="numero"></div>
+                            <div class="col-md-8 mb-3"><label for="complemento"
+                                    class="form-label">Complemento</label><input type="text" class="form-control"
+                                    id="complemento" name="complemento"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3"><label for="bairro" class="form-label">Bairro</label><input
+                                    type="text" class="form-control" id="bairro" name="bairro"></div>
+                            <div class="col-md-4 mb-3"><label for="cidade" class="form-label">Cidade</label><input
+                                    type="text" class="form-control" id="cidade" name="cidade"></div>
+                            <div class="col-md-2 mb-3"><label for="uf" class="form-label">UF</label><select id="uf"
+                                    name="uf" class="form-select"></select></div>
+                        </div>
+                    </div>
+
+                    <h5 class="form-section-title">Termos e Condições</h5>
+                    <div class="form-check mb-2"><input class="form-check-input" type="checkbox" value=""
+                            id="termoCurso" required><label class="form-check-label" for="termoCurso">Confirmo que estou
+                            cursando minha pós-graduação há mais de 4 meses (sem TCC), ou 6 meses (com TCC).</label>
+                    </div>
+                    <div class="form-check mb-2"><input class="form-check-input" type="checkbox" value=""
+                            id="termoResponsabilidade" required><label class="form-check-label"
+                            for="termoResponsabilidade">Declaro para os devidos fins que todos os dados informados são
+                            verdadeiros e de minha inteira responsabilidade.</label></div>
+                    <div class="form-check mb-3"><input class="form-check-input" type="checkbox" value="" id="termoUso"
+                            required><label class="form-check-label" for="termoUso">Declaro que li as condições e tenho ciência de que há custo adicional para certificados impressos.</label></div>
+
+                    <hr>
+                    <div class="d-grid"><button type="submit" id="submitButton" class="btn btn-primary btn-lg"><span
+                                id="spinner" class="spinner-border spinner-border-sm" role="status"
+                                aria-hidden="true"></span> Enviar Solicitação</button></div>
+                </form>
+            </div>
+        </div>
+        <footer class="text-center text-muted mt-4">
+            <p>&copy; Nome da Instituição - Todos os Direitos Reservados</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+    <?!= include("application.js") ?>
+    </script>
+</body>
+
+</html>
